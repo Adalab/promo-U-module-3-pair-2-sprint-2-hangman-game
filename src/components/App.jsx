@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     // Dentro de useEffect llamamos a la API
-    fetch("https://dev.adalab.es/api/random/word") // El 5 es el id de la Princesa Leia
+    fetch("https://dev.adalab.es/api/random/word") 
       .then((response) => response.json())
       .then((Data) => {
         // Cuando la API responde guardamos los datos en el estado para que se vuelva a renderizar el componente
