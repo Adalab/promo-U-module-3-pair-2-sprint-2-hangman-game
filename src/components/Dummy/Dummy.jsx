@@ -1,6 +1,10 @@
 import '../../styles/layout/Dummy.scss'
 
-function Dummy(numberOfErrors) {
+function Dummy({word,userLetters}) {
+  const failedLetters = userLetters.filter((letter) => !word.includes(letter));
+  const numberOfErrors = failedLetters.length;
+
+
   return (
     <>
       <section className={`dummy error-${numberOfErrors}`}>

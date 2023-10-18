@@ -1,6 +1,34 @@
 import '../../styles/layout/Letters.scss'
 
-function Letters ({lastLetter}) {
+function Letters ({lastLetter,handleLetter,userLetters,word}) {
+ const handleInputLetter=(ev) => {
+  ev.preventDefault()
+  handleLetter(ev.target.value)}
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  };
+  const renderSolutionLetters = () => {
+    const wordLetters = word.split('');
+    return wordLetters.map((eachLetter, index) => {
+      return (
+        <li key={index} className='letter'>
+          {userLetters.includes(eachLetter) ? eachLetter : ''}
+        </li>
+      );
+    });
+  };
+  const renderErrorLetters = () => {
+    return userLetters
+      .filter((eachLetter) => (word.includes(eachLetter) ? '' : eachLetter))
+      .map((eachLetter, index) => (
+        <li key={index} className='letter'>
+          {eachLetter}
+        </li>
+      ));
+  };
+  
+
     return (
         <section>
           <div className="solution">
@@ -23,7 +51,7 @@ function Letters ({lastLetter}) {
               name="last-letter"
               id="last-letter"
               value={lastLetter}
-              onChange={handleLetter}
+              onChange={handleInputLetter}
             />
           </form>
         </section>
