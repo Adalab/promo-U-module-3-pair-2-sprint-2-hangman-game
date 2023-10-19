@@ -1,4 +1,4 @@
-
+import '../../styles/layout/Instructions.scss'
 
 function Instructions() {
   return (
