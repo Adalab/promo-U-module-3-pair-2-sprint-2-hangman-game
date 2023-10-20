@@ -20,7 +20,6 @@ function App() {
   const updateInput = (value) => {
     setWord(value);
     if (userLetters !== '') {
-      console.log('patata');
       setLastLetter('');
       setUserLetters([]);
     }
@@ -35,7 +34,7 @@ function App() {
         console.log(Data);
         // Cuando la API responde, guardamos los datos en el estado para que se vuelva a renderizar el componente
         setWord(Data.word);
-        setInLoading(true);
+        setInLoading(false);
       });
   }, []);
 
@@ -59,7 +58,7 @@ function App() {
   return (
     <div className="page">
       <Header />
-      <Loading loading={inLoading} />
+      <Loading inLoading={inLoading} />
       <main className="main">
         <Routes>
           <Route

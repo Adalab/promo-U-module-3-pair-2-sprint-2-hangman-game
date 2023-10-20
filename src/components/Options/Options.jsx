@@ -1,11 +1,6 @@
 function Options({ updateInput, word }) {
   const handleInput = (ev) => {
-    console.log('typeof updateInput:', typeof updateInput);
-    if (typeof updateInput === 'function') {
-      updateInput(ev.target.value);
-    } else {
-      console.log('updateInput is not a function:', updateInput);
-    }
+    updateInput(ev.target.value);
   };
 
   return (
